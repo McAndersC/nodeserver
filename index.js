@@ -1,16 +1,20 @@
-import { timeoutTest, fetchTest } from "./test.js";
+import server from "./lib/server.js"
 
 const app = {};
 
-app.init = async () => {
+app.init = () => {
 
-     let fetchResult = await fetchTest();
-     console.log(fetchResult)
-     
-    let result = await timeoutTest()
-    console.log('result', result)
+     const port = 3000;
 
-  
+     server.listen(3000, () => {
+
+          console.log('\n------ SERVER ------ \n')
+          console.log('http://localhost:' + port)
+          console.log('\n------ ****** ------ \n')
+
+     })
+
+
 }
 
 // Starter Applikation
